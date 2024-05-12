@@ -201,11 +201,7 @@
                         <input type="password" required>
                         <label>Confirm Password</label>
                     </div>
-                    
-                    <div class ="terms"> 
-                        <label><input type="checkbox">I agree to the terms and conditions</label>
-                    </div>
-                    
+                                  
                     <button type="submit" class="btn">Sign Up</button>
                 </form>
             </div>
