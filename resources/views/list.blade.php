@@ -48,7 +48,7 @@
     }
 
      #search-btn {
-        background-color: #333;
+        background-color: #1A1818;
         color: white;
         border: none;
         padding: 10px 15px;

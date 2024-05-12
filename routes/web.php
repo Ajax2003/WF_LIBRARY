@@ -27,4 +27,8 @@ Route::get('/returned', function () {
     return view('returned');
 });
 
+Route::get('/add', function () {
+    return view('add');
+});
+
 

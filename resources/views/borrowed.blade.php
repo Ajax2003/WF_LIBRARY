@@ -52,7 +52,7 @@
     }
 
     .content-table th, .content-table td {
-        padding: 20px 66px;
+        padding: 20px 92px;
     }
 
     .content-table tbody tr {
@@ -83,11 +83,9 @@
                     <tr>
                         <th>No.</th>
                         <th>Title</th>
-                        <th>Author</th>
-                        <th>Genre</th>
-                        <th>Subject</th>
-                        <th>Series</th>
-                        <th>Status</th>
+                        <th>Student Name</th>
+                        <th>Borrowed At</th>
+                        <th>Deadline</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,28 +93,22 @@
                         <td>1</td>
                         <td>Atomic Habits</td>
                         <td>Adrian</td>
-                        <td>Horror</td>
-                        <td>Science</td>
-                        <td>Series 1</td>
-                        <td>In</td>
+                        <td>05_12_2024</td>
+                        <td>05_18_2024</td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Atomic Habits</td>
                         <td>Adrian</td>
-                        <td>Horror</td>
-                        <td>Science</td>
-                        <td>Series 1</td>
-                        <td>In</td>
+                        <td>05_12_2024</td>
+                        <td>05_18_2024</td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>Atomic Habits</td>
                         <td>Adrian</td>
-                        <td>Horror</td>
-                        <td>Science</td>
-                        <td>Series 1</td>
-                        <td>In</td>
+                        <td>05_12_2024</td>
+                        <td>05_18_2024</td>
                     </tr>
                 </tbody>
           </table>

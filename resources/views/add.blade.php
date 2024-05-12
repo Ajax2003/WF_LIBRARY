@@ -34,25 +34,12 @@
         border-left: 2px solid #36454F;
     }
 
-    .search {
+    .back {
+        padding: 0;
         margin-left: 10px;
-
     }
 
-    #search-input {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        flex: 1; /* Allow input field to grow */
-    }
-
-     #search-btn {
-        background-color: #333;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
+    .back:hover {
         cursor: pointer;
     }
 
@@ -60,7 +47,6 @@
         border-collapse: collapse;
         min-width: 400px;
         display: inline-block;
-
     }
 
     .content-table thead tr {
@@ -100,16 +86,6 @@
     .remove:hover {
         cursor: pointer;
     }
-
-    #add-btn {
-        background-color: #1A1818;
-        font-family: "Courier New", monospace;
-        font-size: 18px;
-        color:white;
-        padding: 5px;
-        border: none;
-        margin-left: 10px;
-    }
     </style>
 </head>
 <body>
@@ -117,12 +93,7 @@
     @include('components.navbar')
     <main class="main">
         <div class ="container">
-            <h1> > LIST OF BOOKS</h1>
-            <div class ="search"> 
-                <input type="text" id="search-input" placeholder="Search books...">
-                <button type="button" id="search-btn"><i class="fas fa-search"></i></button>
-            </div>
-                <a href="/add" button type="button" id="add-btn"><i class="fa-solid fa-plus"></i> Add New Book</button></a>
+          <a href="/list" class="back"><h1> > GO BACK</h1> </a>
         </div>
         <div class ="box">
 
