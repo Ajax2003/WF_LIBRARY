@@ -31,4 +31,11 @@ Route::get('/add', function () {
     return view('add');
 });
 
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/register', function () {
+    return view('auth.register');
+});
 
