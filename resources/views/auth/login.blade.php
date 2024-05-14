@@ -176,6 +176,16 @@
         .login-register p a:hover {
             text-decoration: underline;
         }
+
+        .custom-alert {
+            font-size: 15px;
+            color: #ff0000;
+            background-color: transparent;
+            font-weight: bold;
+    
+        }
+
+
     </style> 
 
 </head> 
@@ -183,7 +193,7 @@
 <body>
     <div class ="container">
         <div class ="content">
-            <img src ="images/logo.png" class="logo">
+            <img src ="/images/logo.png" class="logo">
             <div class ="text-welcome">
                 <h2>Welcome! <br> <span>To Our Library.</span></h2>
                 <p>Welcome to the world of endless knowledge at your fingertips!  We're excited to introduce you to our user-friendly library website, your one-stop shop for borrowing books. No more heavy backpacks or crowded shelves – browse our extensive online catalog from the comfort of your dorm room or favorite study spot. Find the perfect book by title, author, or even by genre, and see if it's available in real-time.
@@ -191,30 +201,51 @@
                  </p>
             </div>
         </div>
+        
         <div class ="logging">
+            
             <div class="form-box login">
-                <form action="#">
+                <form action="{{ route('account.authenticate')}}" method="post">
+                    @csrf
+                     @if(Session::has('success'))
+                        <div class="alert custom-alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
+
+                    @if(Session::has('error'))
+                        <div class="alert custom-alert alert-danger" >
+                            {{  Session::get('error') }}
+                        </div>
+                    @endif
                     <h2>Sign In</h2>
 
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                        <input type="email" required>
-                        <label>Email</label>
+                        <input type="email" name="email" id="email" value="{{old('email')}}" required>
+                        <label for="email">Email</label>
+                        @error('email')
+                            <p class ="invalid-feedback">{{$message}}</p>
+                        @enderror
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                        <input type="password" required>
-                        <label>Password</label>
+                        <input type="password" name="password" id="password" required>
+                        <label for="password">Password</label> 
+                        @error('password')
+                            <p class ="invalid-feedback">{{$message}}</p>
+                        @enderror
                     </div>
                     
                     <div class ="remember"> 
                         <label><input type="checkbox">Remember Me</label>
                     </div>
-                    <button type="submit" class="btn">Sign In</button>
-
+           
+                         <button type="submit" class="btn">Sign In</button>
+    
                     <div class="login-register">
-                        <p>Don't have an account?<a href="/register" class="register-link"> Sign Up</a></p>
+                        <p>Don't have an account?<a href="{{route('account.register')}}" class="register-link"> Sign Up</a></p>
                     </div>
                 </form>
             </div>

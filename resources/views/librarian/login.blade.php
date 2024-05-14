@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a0438d8cf7.js" crossorigin="anonymous"></script>
-    <title>Login</title>
+    <title>Librarian</title>
     <style> 
         body {
             background-color: #f3f3f3;
@@ -88,7 +88,7 @@
             width: 340px;
             height: 50px;
             border-bottom: 2px solid white;
-            margin: 15px 0;
+            margin: 30px 0;
         }
 
         .input-box input {
@@ -108,7 +108,7 @@
             top: 50%;
             left: 0;
             transform: translateY(-50%);
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 500;
             pointer-events: none;
             transition: .5s ease;
@@ -127,9 +127,18 @@
             font-size: 19px;
         }
 
-        .terms label input {
+        .form-box .remember {
+            font-weight: bold;
+            font-size: 20px;
+            font-weight: 500;
+            margin: -15px 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .remember label input {
             margin-right: 3px;
-            margin-bottom: 15px;
         }
 
 
@@ -152,6 +161,31 @@
             transition: background-color 0.2s ease-in-out; 
         }
 
+        .form-box .login-register {
+            font-size: 20px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .login-register p a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .login-register p a:hover {
+            text-decoration: underline;
+        }
+
+        .custom-alert {
+            font-size: 15px;
+            color: #ff0000;
+            background-color: transparent;
+            font-weight: bold;
+    
+        }
+
+
     </style> 
 
 </head> 
@@ -161,61 +195,58 @@
         <div class ="content">
             <img src ="/images/logo.png" class="logo">
             <div class ="text-welcome">
-                <h2>Welcome! <br> <span>To Our Library.</span></h2>
+                <h2>Library Management <br> <span>Manage.Add.Remove.</span></h2>
                 <p>Welcome to the world of endless knowledge at your fingertips!  We're excited to introduce you to our user-friendly library website, your one-stop shop for borrowing books. No more heavy backpacks or crowded shelves – browse our extensive online catalog from the comfort of your dorm room or favorite study spot. Find the perfect book by title, author, or even by genre, and see if it's available in real-time.
                 Dive into the exciting world of literature and get ready to unlock a universe of stories – your borrowing adventure starts now!
                  </p>
             </div>
         </div>
+        
         <div class ="logging">
+            
             <div class="form-box login">
-                <form action="{{route('account.processRegister')}}" method="post">
+                <form action="{{ route('librarian.authenticate')}}" method="post">
                     @csrf
-                    <h2>Sign Up</h2>
+                     @if(Session::has('success'))
+                        <div class="alert custom-alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
 
-                    <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-user"></i></span>
-                        <input type="name" name="name" id="name" required>
-                        <label>Name</label>
-                        @error('name')
-                         <p class ="invalid-feedback">{{$message}}</p>
-                        @enderror
-                    </div>
-
-                    <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-                        <input type="name" name="address" id="address" required>
-                        <label>Address</label>
-                    </div>
+                    @if(Session::has('error'))
+                        <div class="alert custom-alert alert-danger" >
+                            {{  Session::get('error') }}
+                        </div>
+                    @endif
+                    <h2>Sign In</h2>
 
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-envelope"></i></span>
                         <input type="email" name="email" id="email" value="{{old('email')}}" required>
-                        <label>Email</label>
+                        <label for="email">Email</label>
                         @error('email')
-                         <p class ="invalid-feedback">{{$message}}</p>
+                            <p class ="invalid-feedback">{{$message}}</p>
                         @enderror
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-lock"></i></span>
                         <input type="password" name="password" id="password" required>
-                        <label>Password</label>
+                        <label for="password">Password</label> 
                         @error('password')
-                         <p class ="invalid-feedback">{{$message}}</p>
+                            <p class ="invalid-feedback">{{$message}}</p>
                         @enderror
                     </div>
-
-                    <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                        <input type="password" name="password_confirmation" id="password_confirmation" required>
-                        <label>Confirm Password</label>
-                        @error('password_confirmation')
-                         <p class ="invalid-feedback">{{$message}}</p>
-                        @enderror
+                    
+                    <div class ="remember"> 
+                        <label><input type="checkbox">Remember Me</label>
                     </div>
-                                  
-                    <button type="submit" class="btn">Sign Up</button>
+           
+                         <button type="submit" class="btn">Sign In</button>
+    
+                    <div class="login-register">
+                        <p>Don't have an account?<a href="{{route('account.register')}}" class="register-link"> Sign Up</a></p>
+                    </div>
                 </form>
             </div>
         </div>
