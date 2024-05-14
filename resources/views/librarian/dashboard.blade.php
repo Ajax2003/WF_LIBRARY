@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a0438d8cf7.js" crossorigin="anonymous"></script>
-    <title>Librarian</title>
+    <title>My Application</title>
     <style>
     body {
            height: 100vh;
@@ -70,11 +70,11 @@
     }
 
     .content-table tbody td {
-        font-size: 15px;   
+        font-size: 18px;   
     }
 
     .content-table th, .content-table td {
-        padding: 20px 55px;
+        padding: 20px 90px;
     }
 
     .content-table tbody tr {
@@ -122,61 +122,31 @@
                 <input type="text" id="search-input" placeholder="Search books...">
                 <button type="button" id="search-btn"><i class="fas fa-search"></i></button>
             </div>
-                <a href="/add" button type="button" id="add-btn"><i class="fa-solid fa-plus"></i> Add New Book</button></a>
+                <a href="{{route('librarian.add')}}" button type="button" id="add-btn"><i class="fa-solid fa-plus"></i> Add New Book</button></a>
         </div>
         <div class ="box">
-            <table class ="content-table">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Genre</th>
-                        <th>Subject</th>
-                        <th>Series</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Atomic Habits</td>
-                        <td>Adrian</td>
-                        <td>Horror</td>
-                        <td>Science</td>
-                        <td>Series 1</td>
-                        <td>In</td>
-                        <td>
-                            <button class="remove">Remove</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Atomic Habits</td>
-                        <td>Adrian</td>
-                        <td>Horror</td>
-                        <td>Science</td>
-                        <td>Series 1</td>
-                        <td>In</td>
-                        <td>
-                            <button class="remove">Remove</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Atomic Habits</td>
-                        <td>Adrian</td>
-                        <td>Horror</td>
-                        <td>Science</td>
-                        <td>Series 1</td>
-                        <td>In</td>
-                        <td>
-                            <button class="remove">Remove</button>
-                        </td>
-                    </tr>
-                </tbody>
-          </table>
+        <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Book Name</th>
+                                <th scope="col">Author</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Published Date</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($books as $book)
+                            <tr>
+                                <td>{{ $book->book_name }}</td>
+                                <td>{{ $book->author}}</td>
+                                <td>{{ $book->category}}</td>
+                                <td>{{ $book->published_date }}</td>
+                                <td>{{ $book->is_borrowed }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
         </div>
     </main>
 </body>

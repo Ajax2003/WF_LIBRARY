@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a0438d8cf7.js" crossorigin="anonymous"></script>
-    <title>My Application</title>
+    <title>Admin</title>
     <style>
     body {
            height: 100vh;
@@ -34,6 +34,28 @@
         border-left: 2px solid #36454F;
     }
 
+    .search {
+        margin-left: 10px;
+
+    }
+
+    #search-input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        flex: 1; /* Allow input field to grow */
+    }
+
+     #search-btn {
+        background-color: #1A1818;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
     .content-table {
         border-collapse: collapse;
         min-width: 400px;
@@ -52,7 +74,7 @@
     }
 
     .content-table th, .content-table td {
-        padding: 20px 92px;
+        padding: 20px 55px;
     }
 
     .content-table tbody tr {
@@ -66,16 +88,41 @@
     .content-table tbody tr:last-of-type {
         border-bottom: 2px solid #1A1818;
     }
+    .remove {
+        background-color: #1A1818;
+        font-family: "Courier New", monospace;
+        font-size: 18px;
+        color:white;
+        padding: 5px;
+        border: none;
+    }
 
+    .remove:hover {
+        cursor: pointer;
+    }
+
+    #add-btn {
+        background-color: #1A1818;
+        font-family: "Courier New", monospace;
+        font-size: 18px;
+        color:white;
+        padding: 5px;
+        border: none;
+        margin-left: 10px;
+    }
     </style>
 </head>
 <body>
     @include('components.sidebar')
-
     @include('components.navbar')
     <main class="main">
         <div class ="container">
-            <h1> > BORROWED BOOKS</h1>
+            <h1> > LIST OF USERS</h1>
+            <div class ="search"> 
+                <input type="text" id="search-input" placeholder="Search books...">
+                <button type="button" id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+                <a href="/add" button type="button" id="add-btn"><i class="fa-solid fa-plus"></i> Add New Book</button></a>
         </div>
         <div class ="box">
             <table class ="content-table">
@@ -83,9 +130,12 @@
                     <tr>
                         <th>No.</th>
                         <th>Title</th>
-                        <th>Student Name</th>
-                        <th>Borrowed At</th>
-                        <th>Deadline</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Subject</th>
+                        <th>Series</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -93,22 +143,37 @@
                         <td>1</td>
                         <td>Atomic Habits</td>
                         <td>Adrian</td>
-                        <td>05_12_2024</td>
-                        <td>05_18_2024</td>
+                        <td>Horror</td>
+                        <td>Science</td>
+                        <td>Series 1</td>
+                        <td>In</td>
+                        <td>
+                            <button class="remove">Remove</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Atomic Habits</td>
                         <td>Adrian</td>
-                        <td>05_12_2024</td>
-                        <td>05_18_2024</td>
+                        <td>Horror</td>
+                        <td>Science</td>
+                        <td>Series 1</td>
+                        <td>In</td>
+                        <td>
+                            <button class="remove">Remove</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>Atomic Habits</td>
                         <td>Adrian</td>
-                        <td>05_12_2024</td>
-                        <td>05_18_2024</td>
+                        <td>Horror</td>
+                        <td>Science</td>
+                        <td>Series 1</td>
+                        <td>In</td>
+                        <td>
+                            <button class="remove">Remove</button>
+                        </td>
                     </tr>
                 </tbody>
           </table>

@@ -1,18 +1,18 @@
 <section class ="topsidebar"> 
   <div class="logo-text-container">
-    <img src ="images/logo.png" class="logo">
+    <img src ="/images/logo.png" class="logo">
     <h1 class="text-library">Library Management</h1>
   </div>
 </section>
 <section class ="sidebar">
     <h2 class="text-management">Management</h2>
     <ul>
-      <li><a href="/list"><i class="fa-solid fa-book"></i> List of Books</a></li>
-      <li><a href="/borrowed"><i class="fa-solid fa-book-bookmark"></i> Borrowed Books</a></li>
-      <li><a href="/returned"><i class="fa-solid fa-book-bookmark"></i> Returned Books</a></li>
+      <li><a href="dashboard"><i class="fa-solid fa-book"></i> List of Books</a></li>
+      <li><a href="borrowed"><i class="fa-solid fa-book-bookmark"></i> Borrowed Books</a></li>
+      <li><a href="returned"><i class="fa-solid fa-book-bookmark"></i> Returned Books</a></li>
     </ul>
     <ul>
-      <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
+      <li><a href="{{route('account.logout')}}"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
     </ul>
 </section>
 

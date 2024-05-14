@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class LoginController extends Controller
 {
     public function index() {
-        return view('librarian.login');
+        return view('admin.login');
     }
 
     //This method will authenticate the librarian user

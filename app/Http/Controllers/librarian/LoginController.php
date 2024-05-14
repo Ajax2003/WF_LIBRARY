@@ -25,7 +25,8 @@ class LoginController extends Controller
         if ($validator->passes()) {
 
             if(Auth::guard('librarian')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            
+        
+
                 return redirect()->route('librarian.dashboard');
 
             } else {
@@ -38,6 +39,11 @@ class LoginController extends Controller
             ->withErrors($validator);
         }
 
+    }
+
+    public function logout() {
+        Auth::guard('librarian')->logout();
+        return redirect()->route('librarian.login');
     }
 
 }

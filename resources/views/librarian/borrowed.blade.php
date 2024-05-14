@@ -34,28 +34,6 @@
         border-left: 2px solid #36454F;
     }
 
-    .search {
-        margin-left: 10px;
-
-    }
-
-    #search-input {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        flex: 1; /* Allow input field to grow */
-    }
-
-     #search-btn {
-        background-color: #1A1818;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
     .content-table {
         border-collapse: collapse;
         min-width: 400px;
@@ -70,11 +48,11 @@
     }
 
     .content-table tbody td {
-        font-size: 18px;   
+        font-size: 15px;   
     }
 
     .content-table th, .content-table td {
-        padding: 20px 90px;
+        padding: 20px 140px;
     }
 
     .content-table tbody tr {
@@ -88,60 +66,33 @@
     .content-table tbody tr:last-of-type {
         border-bottom: 2px solid #1A1818;
     }
-    .remove {
-        background-color: #1A1818;
-        font-family: "Courier New", monospace;
-        font-size: 18px;
-        color:white;
-        padding: 5px;
-        border: none;
-    }
 
-    .remove:hover {
-        cursor: pointer;
-    }
-
-    #add-btn {
-        background-color: #1A1818;
-        font-family: "Courier New", monospace;
-        font-size: 18px;
-        color:white;
-        padding: 5px;
-        border: none;
-        margin-left: 10px;
-    }
     </style>
 </head>
 <body>
     @include('components.sidebar')
+
     @include('components.navbar')
     <main class="main">
         <div class ="container">
-            <h1> > LIST OF BOOKS</h1>
-            <div class ="search"> 
-                <input type="text" id="search-input" placeholder="Search books...">
-                <button type="button" id="search-btn"><i class="fas fa-search"></i></button>
-            </div>
-                <a href="account/login" button type="button" id="add-btn"><i class="fa-solid fa-plus"></i> Add New Book</button></a>
+            <h1> > BORROWED BOOKS</h1>
         </div>
         <div class ="box">
         <table class="content-table">
                         <thead>
                             <tr>
                                 <th scope="col">Book Name</th>
-                                <th scope="col">Author</th>
-                                <th scope="col">Category</th>
                                 <th scope="col">Published Date</th>
+                                <th scope="col">Author</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="table-group-divider">
                             @foreach($books as $book)
                             <tr>
                                 <td>{{ $book->book_name }}</td>
-                                <td>{{ $book->author}}</td>
-                                <td>{{ $book->category}}</td>
                                 <td>{{ $book->published_date }}</td>
+                                <td>{{ $book->author }}</td>
                                 <td>{{ $book->is_borrowed }}</td>
                             </tr>
                             @endforeach
