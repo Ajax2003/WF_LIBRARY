@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\admin\LoginController as AdminLoginController;
 
 
+use App\Http\Controllers\ListController;
 use App\Http\Controllers\AddBookController;
 use App\Http\Controllers\AvailableBookController;
 use App\Http\Controllers\ViewBorrowedController;
@@ -46,9 +47,7 @@ Route::get('/returned', function () {
     return view('returned');
 });
 
-Route::get('/add', function () {
-    return view('add');
-});
+
 
 Route::group(['prefix' => 'account'], function() {
     //Guest Middleware
@@ -80,9 +79,10 @@ Route::get('/add', [AddBookController::class, 'viewAdd']);
 Route::post('/add', [AddBookController::class, 'addBook'])->name('add.books');
 Route::get('/available', [AvailableBookController::class,'viewAvailable']);
 Route::get('/borrowed', [ViewBorrowedController::class,'viewBorrowed']);
-Route::get('/list',[LibrarianDashboardController::class, 'viewList']);
+Route::get('/list',[ListController::class, 'viewList']);
 Route::post('/book/{id}', [BookInfoController::class, 'clickableCard'])->name('book.show');
 Route::get('/book/{id}', [BookInfoController::class, 'clickableCard'])->name('book.show');
+
 
 
 
